@@ -11,7 +11,9 @@ const int PHOTODIODE_READ_TIME=20;
 int currentPin = RED_LED_PIN;
 String currentLED = "";
 
-Timer t;
+Timer ledOnTimer;
+Timer ledOffTimer;
+Timer photodiodeTimer;
 
 void setup() {
   pinMode(RED_LED_PIN, OUTPUT);
@@ -19,13 +21,15 @@ void setup() {
 
   Serial.begin(9600);
 
-  t.every(PHOTODIODE_READ_TIME, readDiode);
+  photodiodeTimer.every(PHOTODIODE_READ_TIME, readDiode);
 
   flashLEDOn();
 }
 
 void loop() {
-  t.update();
+  ledOnTimer.update();
+  ledOffTimer.update();
+  photodiodeTimer.update();
 }
 
 void switchPin() {
@@ -34,7 +38,7 @@ void switchPin() {
 
 void flashLEDOn() {
   digitalWrite(currentPin, HIGH);
-  t.after(FLASH_TIME, flashLEDOff);
+  ledOnTimer.after(FLASH_TIME, flashLEDOff);
   currentLED = (currentPin == RED_LED_PIN) ? " RED LED ON" : " IR LED ON";
   Serial.print(millis());
   Serial.println(currentLED);
@@ -42,7 +46,7 @@ void flashLEDOn() {
 
 void flashLEDOff() {
   digitalWrite(currentPin, LOW);
-  t.after(FLASH_TIME + INTERFLASH_DELAY, flashLEDOn);
+  ledOffTimer.after(FLASH_TIME + INTERFLASH_DELAY, flashLEDOn);
   currentLED = (currentPin == RED_LED_PIN) ? " RED LED OFF" : " IR LED OFF";
   switchPin();
   Serial.print(millis());
