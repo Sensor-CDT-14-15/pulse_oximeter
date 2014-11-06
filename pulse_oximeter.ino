@@ -19,7 +19,7 @@ void setup() {
   pinMode(RED_LED_PIN, OUTPUT);
   pinMode(IR_LED_PIN, OUTPUT);
 
-  Serial.begin(9600);
+  Serial.begin(57600);
 
   photodiodeTimer.every(PHOTODIODE_READ_TIME, readDiode);
 
