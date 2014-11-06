@@ -42,7 +42,7 @@ void flashLEDOn() {
 
 void flashLEDOff() {
   digitalWrite(currentPin, LOW);
-  t.after(INTERFLASH_DELAY, flashLEDOn);
+  t.after(FLASH_TIME + INTERFLASH_DELAY, flashLEDOn);
   currentLED = (currentPin == RED_LED_PIN) ? " RED LED OFF" : " IR LED OFF";
   switchPin();
   Serial.print(millis());
