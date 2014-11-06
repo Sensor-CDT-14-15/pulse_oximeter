@@ -1,6 +1,6 @@
 #include "Timer.h"
 
-const int RED_LED_PIN=13;
+const int RED_LED_PIN=12;
 const int IR_LED_PIN=7;
 const int PHOTODIODE_PIN=A0;
 
