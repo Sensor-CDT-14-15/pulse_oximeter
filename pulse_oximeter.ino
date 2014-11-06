@@ -39,7 +39,7 @@ void switchPin() {
 void flashLEDOn() {
   digitalWrite(currentPin, HIGH);
   ledOnTimer.after(FLASH_TIME, flashLEDOff);
-  currentLED = (currentPin == RED_LED_PIN) ? " RED LED ON" : " IR LED ON";
+  currentLED = (currentPin == RED_LED_PIN) ? " RED ON" : " IR ON";
   Serial.print(millis());
   Serial.println(currentLED);
 }
@@ -47,7 +47,7 @@ void flashLEDOn() {
 void flashLEDOff() {
   digitalWrite(currentPin, LOW);
   ledOffTimer.after(FLASH_TIME + INTERFLASH_DELAY, flashLEDOn);
-  currentLED = (currentPin == RED_LED_PIN) ? " RED LED OFF" : " IR LED OFF";
+  currentLED = (currentPin == RED_LED_PIN) ? " RED OFF" : " IR OFF";
   switchPin();
   Serial.print(millis());
   Serial.println(currentLED);
@@ -55,6 +55,6 @@ void flashLEDOff() {
 
 void readDiode() {
   Serial.print(millis());
-  Serial.print(" PHOTODIODE LEVEL ");
+  Serial.print(" PHOTODIODE ");
   Serial.println(analogRead(PHOTODIODE_PIN));
 }
