@@ -28,7 +28,7 @@ def receiving(ser):
 class SerialData(object):
     def __init__(self, init=50):
         try:
-            self.ser = ser = serial.Serial('/dev/tty.usbmodem1411', baudrate=57600, timeout=11)
+            self.ser = ser = serial.Serial('/dev/tty.usbmodem1411', baudrate=57600, timeout=1)
         except serial.serialutil.SerialException:
             #no serial connection
             self.ser = None

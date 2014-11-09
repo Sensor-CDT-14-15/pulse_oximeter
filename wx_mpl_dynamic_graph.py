@@ -135,9 +135,9 @@ class GraphFrame(wx.Frame):
         self.canvas = FigCanvas(self.panel, -1, self.fig)
 
         self.xmin_control = BoundControlBox(self.panel, -1, "X min", 0)
-        self.xmax_control = BoundControlBox(self.panel, -1, "X max", 50)
+        self.xmax_control = BoundControlBox(self.panel, -1, "X max", 120)
         self.ymin_control = BoundControlBox(self.panel, -1, "Y min", 0)
-        self.ymax_control = BoundControlBox(self.panel, -1, "Y max", 100)
+        self.ymax_control = BoundControlBox(self.panel, -1, "Y max", 512)
 
         self.pause_button = wx.Button(self.panel, -1, "Pause")
         self.Bind(wx.EVT_BUTTON, self.on_pause_button, self.pause_button)
