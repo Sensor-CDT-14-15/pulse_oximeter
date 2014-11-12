@@ -3,6 +3,8 @@ This repository contains an Arduino sketch for controlling a red and IR LED and 
 
 
 ## Setting up the Arduino
+First, in order for the sketch to work, you will need to install Simon Monk's Timer library, which can be found [here](http://playground.arduino.cc/Code/Timer).
+
 Out-of-the-box, the Arduino sketch ``pulse_oximeter.ino`` assumes that the red LED is connected to pin 12, the IR LED is connected to pin 7, and the photodiode is connected to pin A0.
 This can be changed by editing the following declarations at the top of the sketch:
 ```c
