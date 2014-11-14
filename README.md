@@ -1,6 +1,8 @@
 # Arduino pulse oximeter
 This repository contains an Arduino sketch for controlling a red and IR LED and reading from a photodiode for use as a pulse oximeter, and a Python script for reading the messages output over the serial connection.
 
+There is now also another Python script for plotting data from the Arduino in real time, ``real-time-plot``.
+
 
 ## Setting up the Arduino
 First, in order for the sketch to work, you will need to install Simon Monk's Timer library, which can be found [here](http://playground.arduino.cc/Code/Timer).
